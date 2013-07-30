@@ -9,6 +9,7 @@ class MoviesController < ApplicationController
   def index
     if params[:sort_by]
       @movies = Movie.order(params[:sort_by])
+      instance_variable_set("@"+params[:class], 'hilite')
     else
       @movies = Movie.all
     end
